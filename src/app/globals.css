@@ -1,0 +1,200 @@
+@import "tailwindcss";
+@import "../../public/fonts/Montserrat/stylesheet.css";
+
+@theme {
+
+  /* ========== FONT FAMILY ========== */
+  --font-primary: "Montserrat", "sans-serif";
+
+  /* ========== BACKGROUND COLOR ========== */
+  --color-body: #F5F6FA;
+  --color-primary: #4880FF;
+  --color-secondary: #202224;
+  --color-black-background: #000000;
+  --color-white-background: #FFFFFF;
+
+  /* ========== TEXT COLOR ========== */
+  --color-text-primary: #4880FF;
+  --color-text-secondary: #202224;
+  --color-text-404040: #404040;
+  --color-text-565656: #565656;
+  --color-text-606060: #606060;
+  --color-text-secondary-op7: rgba(32, 34, 36, 0.7);
+  --color-text-gray: #B5B5B5;
+
+  /* ========== INPUT COLOR ========== */
+  --color-input-bg: #F5F6FA;
+  --color-input-text: rgba(32, 34, 36, 0.5);
+
+  /* ========== BORDER COLOR ========== */
+  --color-border-fill: #E0E0E0;
+
+  /* ========== SHADES OF SECONDARY COLOR ========== */
+  --color-secondary-5c5c5c: #5C5C5C;
+
+  /* ========== TABLE COLOR ========== */
+  --color-striped: rgba(103, 106, 123, 0.08);
+
+  /* ========== SHADES COLOR ========== */
+  --color-purple-card: #8280FF;
+  --color-green-card: #00B69B;
+  --color-yellow-card: #FEC53D;
+  --color-orange-card: #FF9066;
+  --color-red-card: #F93C65;
+
+  --color-purple-card-shade: rgba(130, 128, 255, 0.2);
+  --color-yellow-card-shade: rgba(254, 197, 61, 0.2);
+  --color-green-card-shade: rgba(0, 182, 155, 0.2);
+  --color-orange-card-shade: rgba(255, 144, 102, 0.2);
+  --color-red-card-shade: rgb(249, 60, 101, 0.2);
+
+
+  /* ========== OTHER COLOR ========== */
+  --color-red: #F93C65;
+  --color-red-shade: rgb(249, 60, 101, 0.2);
+  --color-green: #00B69B;
+
+
+
+  /* ========== CUSTOME BREAKPOINTS ========== */
+  --breakpoint-xxl-desktop: 1600px;
+  --breakpoint-xl-desktop: 1400px;
+  --breakpoint-m-laptop: 1200px;
+  --breakpoint-laptop: 992px;
+  --breakpoint-tablet: 768px;
+  --breakpoint-sm-mobile: 576px;
+  --breakpoint-mobile: 375px;
+
+  /* ============================================ COMMON FONT SIZE ============================================ */
+  --text-12: 12px;
+  --text-14: 14px;
+  --text-16: 16px;
+  --text-18: 18px;
+  --text-20: 20px;
+  --text-22: 22px;
+  --text-24: 24px;
+  --text-28: 28px;
+  --text-30: 30px;
+  --text-32: 32px;
+
+  /* ========== CUSTOME SHADOW ========== */
+  --shadow-custom: 6px 6px 54px 0 rgba(0, 0, 0, 0.05)
+}
+
+.dark {
+  --color-body: #1B2431;
+  --color-white-background: #273142;
+  --color-black-background: rgba(255, 255, 255, 0.8);
+
+  /* ========== TEXT COLOR ========== */
+  --color-text-secondary: #FFFFFF;
+
+  /* ========== INPUT COLOR ========== */
+  --color-input-bg: #323D4E;
+  --color-input-text: rgba(255, 255, 255, 0.8);
+
+  /* ========== SHADES OF SECONDARY COLOR ========== */
+  --color-text-404040: rgba(255, 255, 255, 0.8);
+  --color-text-565656: #FFFFFF;
+  --color-text-606060: #FFFFFF;
+  --color-text-secondary-op7: rgba(255, 255, 255, 0.7);
+
+  /* ========== BORDER COLOR ========== */
+  --color-border-fill: rgba(207, 207, 207, 0.1);
+
+  /* ========== TABLE COLOR ========== */
+  --color-striped: #323D4E;
+
+  /* ========== SHADES COLOR ========== */
+  --color-purple-card: #FFF;
+  --color-green-card: #FFF;
+  --color-yellow-card: #FFF;
+  --color-orange-card: #FFF;
+  --color-red-card: #FFF;
+
+  --color-purple-card-shade: rgba(130, 128, 255, 1);
+  --color-yellow-card-shade: rgba(254, 197, 61, 1);
+  --color-green-card-shade: rgba(0, 182, 155, 1);
+  --color-orange-card-shade: rgba(255, 144, 102, 1);
+  --color-red-card-shade: rgb(249, 60, 101, 1);
+}
+
+.montserrat-fonts {
+  font-family: "Montserrat";
+}
+
+body {
+  font-family: "Montserrat";
+}
+
+
+@layer components {
+  .statsCard {
+    @apply xl-desktop:p-4 px-3 py-4 w-full bg-white-background rounded-[14px] shadow-custom;
+  }
+
+  .sc-top {
+    @apply flex items-start justify-between gap-[55px] xxl-desktop:gap-[74px];
+  }
+
+  .sc-content-wrapper {
+    @apply flex flex-col gap-3;
+  }
+
+  .sc-title {
+    @apply text-14 xxl-desktop:text-16 font-semibold text-text-secondary-op7;
+  }
+
+  .sc-value {
+    @apply xxl-desktop:text-28 xl-desktop:text-24 text-22 font-semibold text-text-secondary;
+  }
+
+  .sc-icon-wrapper {
+    @apply xxl-desktop:w-[60px] xxl-desktop:h-[60px] xl-desktop:w-[54px] xl-desktop:h-[54px] w-[40px] h-[40px] flex items-center justify-center xl-desktop:p-2 xxl-desktop:p-3 xxl-desktop:rounded-[23px] xl-desktop:rounded-[20px] rounded-[12px];
+  }
+
+  .sc-bottom {
+    @apply flex gap-2 xl-desktop:mt-7 mt-5;
+  }
+
+  .sc-bottom-content {
+    @apply xxl-desktop:text-16 xl-desktop:text-14 text-12 font-medium text-text-606060;
+  }
+}
+
+
+@layer components {
+  .primary_btn {
+    @apply bg-primary xl-desktop:text-16 text-14 p-[14px_16px] shadow-none outline-0 cursor-pointer hover:bg-secondary text-white transition-all duration-400 ease-in-out font-semibold rounded-[8px] xl-desktop:min-w-[112px] min-w-[90px];
+  }
+
+  .red_btn {
+    @apply bg-red xl-desktop:text-16 text-14 p-[14px_16px] shadow-none outline-0 cursor-pointer hover:bg-secondary text-white transition-all duration-400 ease-in-out font-semibold rounded-[8px] xl-desktop:min-w-[112px] min-w-[90px];
+  }
+
+  .dark .primary_btn {
+    @apply bg-primary hover:bg-white text-white hover:text-text-primary;
+  }
+
+  .dark .red_btn {
+    @apply bg-red hover:bg-white text-white hover:text-red;
+  }
+}
+
+
+/* COMMON SCROLLBAR  */
+
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.common-scrollbar::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+
+.common-scrollbar::-webkit-scrollbar-thumb {
+  background: var(--color-primary);
+  border-radius: 4px;
+}
