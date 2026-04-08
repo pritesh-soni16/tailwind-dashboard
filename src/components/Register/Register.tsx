@@ -10,8 +10,15 @@ import { RegisterSchema } from "@/utils/validationSchemas";
 import { Checkbox } from "../core/Checkbox";
 import Link from "next/link";
 
+type RegisterFormData = {
+  email: string;
+  username: string;
+  password: string;
+  passwordRemember: true;
+};
+
 export const Register = () => {
-  const handleSubmit = async (data: any) => {
+  const handleSubmit = async (data: RegisterFormData) => {
     console.log("Form values:", data);
   };
   return (

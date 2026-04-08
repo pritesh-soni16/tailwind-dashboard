@@ -1,7 +1,7 @@
 import { SVGProps } from "react";
 
 export const Signout = ({ ...props }: SVGProps<SVGSVGElement>) => {
-  const { width, height, fill, className } = props;
+  const { width, height } = props;
 
   return (
     <svg

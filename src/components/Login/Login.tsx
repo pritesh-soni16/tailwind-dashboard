@@ -9,10 +9,14 @@ import { Form, Input } from "../core";
 import { loginSchema } from "@/utils/validationSchemas";
 import { Checkbox } from "../core/Checkbox";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+
+type LoginFormData = {
+  email: string;
+  password: string;
+};
 
 export const Login = () => {
-  const handleSubmit = async (data: any) => {
+  const handleSubmit = async (data: LoginFormData) => {
     console.log("Form values:", data);
   };
   return (

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { FC, useEffect, useState } from "react";
+import React, { FC } from "react";
 
 interface TableTitleType {
   key: keyof TableRowType;
@@ -129,7 +129,7 @@ export const CustomeUserTable: FC<CustomeUserTableProps> = ({ striped }) => {
                   }`}
                   key={rowIndex}
                 >
-                  {tableTitle.map((colTd): any => (
+                  {tableTitle.map((colTd) => (
                     <td
                       className="xl-desktop:py-6 px-3 laptop:py-5 sm-mobile:py-4 py-3 text-center xl-desktop:text-16 text-14 font-regular text-text-404040"
                       key={colTd.key}

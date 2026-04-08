@@ -1,6 +1,6 @@
 "use client";
 
-import React, { FC, useEffect, useRef, useState } from "react";
+import React from "react";
 import { Doughnut } from "react-chartjs-2";
 import {
   ArcElement,

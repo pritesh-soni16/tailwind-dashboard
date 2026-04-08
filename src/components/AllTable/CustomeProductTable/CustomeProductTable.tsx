@@ -2,10 +2,9 @@
 
 import Image from "next/image";
 import type { StaticImageData } from "next/image";
-import React, { FC, useEffect, useState } from "react";
-import { string } from "yup";
+import React, { FC, useState } from "react";
 
-import { Delete, Edit, Message, TickRight, ViewIcon } from "@/assets/icons";
+import { Delete, Message, TickRight, ViewIcon } from "@/assets/icons";
 
 import Image1 from "@/assets/images/Product1.jpg";
 import Image2 from "@/assets/images/Product2.jpg";
@@ -13,12 +12,7 @@ import Image3 from "@/assets/images/Product3.jpg";
 import Image4 from "@/assets/images/Product4.jpg";
 import Image5 from "@/assets/images/Product5.jpg";
 import Image6 from "@/assets/images/Product6.jpg";
-import {
-  Description,
-  Dialog,
-  DialogPanel,
-  DialogTitle,
-} from "@headlessui/react";
+import { Dialog, DialogPanel, DialogTitle } from "@headlessui/react";
 import { Checkbox } from "@/components/core/Checkbox";
 import { usePathname } from "next/navigation";
 import { useTheme } from "@/context/theme-context";
@@ -103,10 +97,6 @@ export const CustomeProductTable: FC<CustomeProductTableProps> = ({
     },
   ];
 
-  const handleDelete = (row: TableRowType) => {
-    console.log("Delete Clicked", row);
-  };
-
   const [modalOpen, setModalOpen] = useState(false);
 
   const ApproveOpen = () => setModalOpen(true);
@@ -145,7 +135,7 @@ export const CustomeProductTable: FC<CustomeProductTableProps> = ({
                   }`}
                   key={rowIndex}
                 >
-                  {tableTitle.map((colTd): any => (
+                  {tableTitle.map((colTd) => (
                     <td
                       className="xl-desktop:py-6 px-3 laptop:py-5 sm-mobile:py-4 py-3 text-center xl-desktop:text-16 text-14 font-regular text-text-404040"
                       key={colTd.key}

@@ -1,13 +1,11 @@
 "use client";
 
-import { Chevron, Search } from "@/assets/icons";
+import { Search } from "@/assets/icons";
 import { Pagination } from "@/components/Common";
-import AutoResizeTextarea from "@/components/Common/Textarea/AutoResizeTextarea";
 import { Input } from "@/components/core";
 import { Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/react";
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
-import Link from "next/link";
-import React, { FC, useEffect, useRef, useState } from "react";
+import React, { FC, useState } from "react";
 
 interface TableTitleType {
   key: keyof TableRowType;
@@ -24,9 +22,7 @@ interface TableRowType {
   status: string;
 }
 
-interface CustomeFeatureTableProps {}
-
-export const CustomeFeatureTable: FC<CustomeFeatureTableProps> = () => {
+export const CustomeFeatureTable: FC = () => {
   const [selectedStatus, setSelectedStatus] = useState("All Status");
   const [currentPage, setCurrentPage] = useState(1);
   const [rowsPerPage, setRowsPerPage] = useState(10);
@@ -174,7 +170,7 @@ export const CustomeFeatureTable: FC<CustomeFeatureTableProps> = () => {
       status: "Completed",
     },
     {
-      id: "001",
+      id: "016",
       name: "Christine Brooks",
       address: "089 Kutch Green Apt. 448",
       date: "14 Feb 2019",
@@ -182,7 +178,7 @@ export const CustomeFeatureTable: FC<CustomeFeatureTableProps> = () => {
       status: "Completed",
     },
     {
-      id: "002",
+      id: "017",
       name: "Rosie Pearson",
       address: "979 Immanuel Ferry Suite 526",
       date: "14 Feb 2019",
@@ -190,7 +186,7 @@ export const CustomeFeatureTable: FC<CustomeFeatureTableProps> = () => {
       status: "Processing",
     },
     {
-      id: "003",
+      id: "018",
       name: "Darrell Caldwell",
       address: "8587 Frida Ports",
       date: "14 Feb 2019",
@@ -198,7 +194,7 @@ export const CustomeFeatureTable: FC<CustomeFeatureTableProps> = () => {
       status: "Rejected",
     },
     {
-      id: "004",
+      id: "019",
       name: "Gilbert Johnston",
       address: "768 Destiny Lake Suite 600",
       date: "14 Feb 2019",
@@ -206,7 +202,7 @@ export const CustomeFeatureTable: FC<CustomeFeatureTableProps> = () => {
       status: "Completed",
     },
     {
-      id: "005",
+      id: "020",
       name: "Alan Cain",
       address: "042 Mylene Throughway",
       date: "14 Feb 2019",
@@ -214,7 +210,7 @@ export const CustomeFeatureTable: FC<CustomeFeatureTableProps> = () => {
       status: "Processing",
     },
     {
-      id: "006",
+      id: "021",
       name: "Alfred Murray",
       address: "543 Weimann Mountain",
       date: "14 Feb 2019",
@@ -222,7 +218,7 @@ export const CustomeFeatureTable: FC<CustomeFeatureTableProps> = () => {
       status: "Completed",
     },
     {
-      id: "007",
+      id: "022",
       name: "Alfred Murray",
       address: "543 Weimann Mountain",
       date: "14 Feb 2019",
@@ -230,7 +226,7 @@ export const CustomeFeatureTable: FC<CustomeFeatureTableProps> = () => {
       status: "Completed",
     },
     {
-      id: "008",
+      id: "023",
       name: "Alfred Murray",
       address: "543 Weimann Mountain",
       date: "14 Feb 2019",
@@ -238,7 +234,7 @@ export const CustomeFeatureTable: FC<CustomeFeatureTableProps> = () => {
       status: "Completed",
     },
     {
-      id: "009",
+      id: "024",
       name: "Alfred Murray",
       address: "543 Weimann Mountain",
       date: "14 Feb 2019",
@@ -246,7 +242,7 @@ export const CustomeFeatureTable: FC<CustomeFeatureTableProps> = () => {
       status: "Completed",
     },
     {
-      id: "010",
+      id: "025",
       name: "Alfred Murray",
       address: "543 Weimann Mountain",
       date: "14 Feb 2019",
@@ -254,7 +250,7 @@ export const CustomeFeatureTable: FC<CustomeFeatureTableProps> = () => {
       status: "Completed",
     },
     {
-      id: "011",
+      id: "026",
       name: "Alfred Murray",
       address: "543 Weimann Mountain",
       date: "14 Feb 2019",
@@ -262,7 +258,7 @@ export const CustomeFeatureTable: FC<CustomeFeatureTableProps> = () => {
       status: "Completed",
     },
     {
-      id: "012",
+      id: "027",
       name: "Alfred Murray",
       address: "543 Weimann Mountain",
       date: "14 Feb 2019",
@@ -270,7 +266,7 @@ export const CustomeFeatureTable: FC<CustomeFeatureTableProps> = () => {
       status: "Completed",
     },
     {
-      id: "013",
+      id: "028",
       name: "Alfred Murray",
       address: "543 Weimann Mountain",
       date: "14 Feb 2019",
@@ -278,7 +274,7 @@ export const CustomeFeatureTable: FC<CustomeFeatureTableProps> = () => {
       status: "Completed",
     },
     {
-      id: "014",
+      id: "029",
       name: "Alfred Murray",
       address: "543 Weimann Mountain",
       date: "14 Feb 2019",
@@ -286,7 +282,7 @@ export const CustomeFeatureTable: FC<CustomeFeatureTableProps> = () => {
       status: "Completed",
     },
     {
-      id: "015",
+      id: "030",
       name: "Alfred Murray",
       address: "543 Weimann Mountain",
       date: "14 Feb 2019",
@@ -420,7 +416,7 @@ export const CustomeFeatureTable: FC<CustomeFeatureTableProps> = () => {
                     className={`border-b border-border-fill [&:last-child]:border-b-0 `}
                     key={rowIndex}
                   >
-                    {tableTitle.map((colTd): any => (
+                    {tableTitle.map((colTd) => (
                       <td
                         className="xl-desktop:py-6 px-3 laptop:py-5 sm-mobile:py-4 py-3 text-center xl-desktop:text-16 text-14 font-regular text-text-404040"
                         key={colTd.key}

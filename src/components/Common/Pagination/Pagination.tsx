@@ -37,7 +37,6 @@ export const Pagination: React.FC<PaginationProps> = ({
 
   const totalPages = Math.ceil(totalItems / rowsPerPage);
 
-  const startItem = (currentPage - 1) * rowsPerPage + 1;
   const endItem = Math.min(currentPage * rowsPerPage, totalItems);
 
   const getPageNumbers = () => {

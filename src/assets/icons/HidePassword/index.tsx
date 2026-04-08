@@ -1,5 +1,5 @@
 "use client";
-import { FC, SVGProps } from "react";
+import { SVGProps } from "react";
 
 export const HidePassword = ({ ...props }: SVGProps<SVGSVGElement>) => {
   const { color = "#B7B7B7", width = "24", height = "24" } = props;

@@ -7,6 +7,8 @@ import {
   Title,
   Tooltip,
   Legend,
+  ChartOptions,
+  TooltipItem,
 } from "chart.js";
 import { Bar } from "react-chartjs-2";
 import { useTheme } from "@/context/theme-context";
@@ -18,7 +20,7 @@ ChartJS.register(
   BarElement,
   Title,
   Tooltip,
-  Legend
+  Legend,
 );
 
 export const BarChart = () => {
@@ -45,7 +47,7 @@ export const BarChart = () => {
   const { theme } = useTheme();
   const isDark = theme === "dark";
 
-  const Salesoptions: any = {
+  const Salesoptions: ChartOptions<"bar"> = {
     responsive: true,
     maintainAspectRatio: false,
     plugins: {
@@ -53,7 +55,7 @@ export const BarChart = () => {
         display: false,
       },
       tooltip: {
-        enable: true,
+        enabled: true,
         backgroundColor: "#fff",
         bodyColor: "#000",
         titleColor: "#4880FF",
@@ -70,7 +72,7 @@ export const BarChart = () => {
           size: TooltipBodyFont(),
         },
         callbacks: {
-          label: function (context: any) {
+          label: function (context: TooltipItem<"bar">) {
             const label = context.dataset.label || "";
             const value = context.parsed.y || 0;
             return `${label}: ${value.toLocaleString()}%`;

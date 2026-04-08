@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
+import React from "react";
 import "chart.js/auto";
 import { Linechart } from "./Linechart";
 import { MultiLinechart } from "./MultiLinechart";

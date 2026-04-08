@@ -27,9 +27,11 @@ interface topbarProps {
 }
 
 export const Topbar: FC<topbarProps> = ({ onToggleSidebar }) => {
-  const handleSubmit = (e: any) => {
-    e.preventDefault();
-  };
+  // const router = useRouter();
+
+  // const handleSignout = () => {
+  //   router.push("/login");
+  // };
 
   const { theme, toggleTheme } = useTheme();
   const isDark = theme === "dark";
@@ -302,7 +304,7 @@ export const Topbar: FC<topbarProps> = ({ onToggleSidebar }) => {
                         Activity Log
                       </Link>
                     </MenuItem>
-                    <Form onSubmit={handleSubmit} className="">
+                    <form className="">
                       <MenuItem>
                         <button
                           type="submit"
@@ -312,7 +314,7 @@ export const Topbar: FC<topbarProps> = ({ onToggleSidebar }) => {
                           Sign out
                         </button>
                       </MenuItem>
-                    </Form>
+                    </form>
                   </div>
                 </MenuItems>
               </>

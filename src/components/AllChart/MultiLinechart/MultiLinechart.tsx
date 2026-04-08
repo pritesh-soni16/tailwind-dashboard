@@ -1,6 +1,6 @@
 "use client";
 
-import React, { FC, useEffect, useRef, useState } from "react";
+import React from "react";
 import { Line } from "react-chartjs-2";
 import {
   Chart as ChartJS,
@@ -23,7 +23,7 @@ ChartJS.register(
   LineElement,
   Title,
   Tooltip,
-  Legend
+  Legend,
 );
 
 export const MultiLinechart = () => {
@@ -164,7 +164,7 @@ export const MultiLinechart = () => {
       x: {
         type: "linear",
         ticks: {
-          callback: function (value, index, ticks) {
+          callback: function (value) {
             return value + "K";
           },
           stepSize: 5,
@@ -182,7 +182,7 @@ export const MultiLinechart = () => {
       },
       y: {
         ticks: {
-          callback: function (value, index, ticks) {
+          callback: function (value) {
             return value + "%"; //
           },
           padding: chartPadding(),

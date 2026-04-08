@@ -1,6 +1,6 @@
 "use client";
 
-import React, { FC, useEffect, useRef, useState } from "react";
+import React from "react";
 import { Line } from "react-chartjs-2";
 import {
   Chart as ChartJS,
@@ -25,7 +25,7 @@ ChartJS.register(
   Title,
   Tooltip,
   Legend,
-  Filler
+  Filler,
 );
 
 export const Linechart = () => {
@@ -146,7 +146,7 @@ export const Linechart = () => {
       x: {
         type: "linear",
         ticks: {
-          callback: function (value, index, ticks) {
+          callback: function (value) {
             return value + "K";
           },
           stepSize: 5,
@@ -164,7 +164,7 @@ export const Linechart = () => {
       },
       y: {
         ticks: {
-          callback: function (value, index, ticks) {
+          callback: function (value) {
             return value + "%";
           },
           padding: chartPadding(),

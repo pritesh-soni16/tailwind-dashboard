@@ -18,7 +18,6 @@ export const Input: FC<InputProps> = ({
   label,
   type = "text",
   formgroupclass,
-  className,
   formClass,
   name,
   errorMsg = "",

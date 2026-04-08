@@ -1,23 +1,23 @@
 "use client";
 
 import { Order, Pending, Sales, StatusArrow, User } from "@/assets/icons";
-import React, { FC } from "react";
+import React, { FC, SVGProps } from "react";
 import "chart.js/auto";
 import { Linechart } from "@/components/AllChart/Linechart/Linechart";
 import { CustomeProductTable } from "../AllTable";
 import { useTheme } from "@/context/theme-context";
 
 interface DashboardCardType {
-  title: string;
-  value: string;
-  iconBG: string;
-  Icon: any;
-  iconClass: string;
-  statsArrowClass: string;
-  arrowRotate: string;
-  percentColor: string;
-  statusPercent: string;
-  Status: string;
+  title?: string;
+  value?: string;
+  iconBG?: string;
+  Icon?: FC<SVGProps<SVGSVGElement>>;
+  iconClass?: string;
+  statsArrowClass?: string;
+  arrowRotate?: string;
+  percentColor?: string;
+  statusPercent?: string;
+  Status?: string;
 }
 
 export const Dashboard: FC<DashboardCardType> = () => {

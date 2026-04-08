@@ -1,4 +1,5 @@
 "use client";
+import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import React from "react";
 import { useEffect } from "react";
@@ -6,6 +7,7 @@ import {
   DefaultValues,
   FieldValues,
   FormProvider,
+  Mode,
   Resolver,
   UseFormReturn,
   useForm,
@@ -13,17 +15,17 @@ import {
 
 export type ISubmitHandler<T extends FieldValues> = (
   data: T,
-  methods: UseFormReturn<T>
+  methods: UseFormReturn<T>,
 ) => unknown | Promise<unknown>;
 
 export interface FormProps<T extends FieldValues> {
   onSubmit: ISubmitHandler<T>;
-  schema?: any;
+  schema?: yup.AnyObjectSchema;
   children: React.ReactNode;
   className: string;
   defaultValues?: DefaultValues<T>;
   resetData?: DefaultValues<T>;
-  mode?: any;
+  mode?: Mode;
 }
 
 export function Form<T extends FieldValues>({
@@ -37,7 +39,7 @@ export function Form<T extends FieldValues>({
 }: FormProps<T>) {
   const methods = useForm<T>({
     defaultValues,
-    resolver: yupResolver(schema as any) as Resolver<T, any, T>,
+    resolver: yupResolver(schema as yup.AnyObjectSchema) as Resolver<T>,
     mode: mode,
     reValidateMode: "onChange",
   });

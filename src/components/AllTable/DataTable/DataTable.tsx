@@ -1,5 +1,6 @@
 "use client";
 
+import React, { useState } from "react";
 import { Chevron, Delete, Edit } from "@/assets/icons";
 import { Input, Select } from "@/components/core";
 import { useTheme } from "@/context/theme-context";
@@ -13,7 +14,6 @@ import {
   getPaginationRowModel,
   useReactTable,
 } from "@tanstack/react-table";
-import React, { useState } from "react";
 
 type Person = {
   firstName: string;
@@ -22,6 +22,11 @@ type Person = {
   visits: number;
   status: string;
   progress: number;
+};
+
+type RangeFilter = {
+  min?: number;
+  max?: number;
 };
 
 const defaultData: Person[] = [
@@ -150,7 +155,7 @@ const defaultData: Person[] = [
 const numberRangeFilter: FilterFn<Person> = (
   row,
   columnId,
-  filterValue: { min?: number; max?: number }
+  filterValue: { min?: number; max?: number },
 ) => {
   const value = row.getValue<number>(columnId);
   const { min, max } = filterValue;
@@ -173,7 +178,7 @@ const handleDelete = (person: Person) => {
 };
 
 export const DataTable = () => {
-  const [data, setData] = useState<Person[]>(() => [...defaultData]);
+  const [data] = useState<Person[]>(() => [...defaultData]);
   const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([]);
   const [pagination, setPagination] = useState({
     pageIndex: 0,
@@ -280,12 +285,12 @@ export const DataTable = () => {
                         ? null
                         : flexRender(
                             header.column.columnDef.header,
-                            header.getContext()
+                            header.getContext(),
                           )}
                       {header.column.getCanFilter() && (
                         <div className="mt-2">
                           {["age", "visits", "progress"].includes(
-                            header.column.id!
+                            header.column.id!,
                           ) ? (
                             <>
                               <div className="flex gap-3">
@@ -296,17 +301,20 @@ export const DataTable = () => {
                                   formgroupclass="w-full"
                                   formClass="w-full laptop:!p-[5px_8px] !p-[4px_6px] !text-14 placeholder:!text-14"
                                   value={
-                                    (header.column.getFilterValue() as any)
-                                      ?.min ?? ""
+                                    (
+                                      header.column.getFilterValue() as RangeFilter
+                                    )?.min ?? ""
                                   }
-                                  onChange={(e: any) =>
+                                  onChange={(
+                                    e: React.ChangeEvent<HTMLInputElement>,
+                                  ) =>
                                     header.column.setFilterValue(
-                                      (old: any = {}) => ({
+                                      (old: RangeFilter = {}) => ({
                                         ...old,
                                         min: e.target.value
                                           ? parseInt(e.target.value)
                                           : undefined,
-                                      })
+                                      }),
                                     )
                                   }
                                 />
@@ -317,17 +325,20 @@ export const DataTable = () => {
                                   formgroupclass="w-full"
                                   formClass="w-full laptop:!p-[5px_8px] !p-[4px_6px] !text-14 placeholder:!text-14"
                                   value={
-                                    (header.column.getFilterValue() as any)
-                                      ?.max ?? ""
+                                    (
+                                      header.column.getFilterValue() as RangeFilter
+                                    )?.max ?? ""
                                   }
-                                  onChange={(e: any) =>
+                                  onChange={(
+                                    e: React.ChangeEvent<HTMLInputElement>,
+                                  ) =>
                                     header.column.setFilterValue(
-                                      (old: any = {}) => ({
+                                      (old: RangeFilter = {}) => ({
                                         ...old,
                                         max: e.target.value
                                           ? parseInt(e.target.value)
                                           : undefined,
-                                      })
+                                      }),
                                     )
                                   }
                                 />
@@ -368,9 +379,9 @@ export const DataTable = () => {
                               value={
                                 (header.column.getFilterValue() ?? "") as string
                               }
-                              onChange={(e: any) =>
-                                header.column.setFilterValue(e.target.value)
-                              }
+                              onChange={(
+                                e: React.ChangeEvent<HTMLInputElement>,
+                              ) => header.column.setFilterValue(e.target.value)}
                             />
                           )}
                         </div>
@@ -393,7 +404,7 @@ export const DataTable = () => {
                     >
                       {flexRender(
                         cell.column.columnDef.cell,
-                        cell.getContext()
+                        cell.getContext(),
                       )}
                     </td>
                   ))}

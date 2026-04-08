@@ -8,6 +8,8 @@ import {
   Title,
   Tooltip,
   Legend,
+  ChartOptions,
+  TooltipItem,
 } from "chart.js";
 import { Line } from "react-chartjs-2";
 import { useTheme } from "@/context/theme-context";
@@ -20,7 +22,7 @@ ChartJS.register(
   LineElement,
   Title,
   Tooltip,
-  Legend
+  Legend,
 );
 
 export const SalesAnalyticsLineChart = () => {
@@ -68,7 +70,7 @@ export const SalesAnalyticsLineChart = () => {
   const { theme } = useTheme();
   const isDark = theme === "dark";
 
-  const Salesoptions: any = {
+  const Salesoptions: ChartOptions<"line"> = {
     responsive: true,
     maintainAspectRatio: false,
     plugins: {
@@ -76,7 +78,7 @@ export const SalesAnalyticsLineChart = () => {
         display: false,
       },
       tooltip: {
-        enable: true,
+        enabled: true,
         backgroundColor: "#fff",
         bodyColor: "#000",
         titleColor: "#4880FF",
@@ -93,7 +95,7 @@ export const SalesAnalyticsLineChart = () => {
           size: TooltipBodyFont(),
         },
         callbacks: {
-          label: function (context: any) {
+          label: function (context: TooltipItem<"line">) {
             const label = context.dataset.label || "";
             const value = context.parsed.y || 0;
             return `${label}: ${value.toLocaleString()}`;

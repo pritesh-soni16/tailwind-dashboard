@@ -1,12 +1,11 @@
 "use client";
-import { FC, useState } from "react";
-import { FieldError, useFormContext } from "react-hook-form";
+import { FC } from "react";
+import { useFormContext } from "react-hook-form";
 
 export interface CheckboxProps {
   label?: React.ReactNode;
   disabled?: boolean;
   id?: string;
-  className?: string;
   name: string;
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   checked?: boolean;
@@ -14,7 +13,6 @@ export interface CheckboxProps {
 }
 
 export const Checkbox: FC<CheckboxProps> = ({
-  className,
   name,
   label,
   lableClass,
@@ -27,10 +25,7 @@ export const Checkbox: FC<CheckboxProps> = ({
   const context = useFormContext();
 
   if (context) {
-    const {
-      register,
-      formState: { errors },
-    } = context;
+    const { register } = context;
 
     return (
       <label className="flex items-center cursor-pointer select-none relative">
@@ -40,7 +35,7 @@ export const Checkbox: FC<CheckboxProps> = ({
           {...register(name)}
           onChange={(e) => {
             register(name).onChange(e);
-            onChange && onChange(e);
+            onChange?.(e);
           }}
           defaultChecked={checked}
           disabled={disabled}
